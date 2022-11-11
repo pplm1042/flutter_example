@@ -235,6 +235,7 @@ import 'package:flutter/material.dart';
 
 // 05-1 탭바로 화면 이동하기
 import 'package:flutter/material.dart';
+import 'package:flutter_example/cupertino_main.dart';
 
 class FirstApp extends StatelessWidget {
   List<Animal>? list;
@@ -587,7 +588,7 @@ class _MyHomePageState extends State<MyHomePage>
 }
 
 void main() {
-  runApp(MyApp());
+  runApp(CupertinoMain());
 }
 
 class MyApp extends StatelessWidget {
