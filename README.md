@@ -1,16 +1,16 @@
-# flutter_example
+# 플러터 앱 프로그래밍
 
-A new Flutter project.
+주식회사 인실리코젠의 과일 궁합 어플리케이션에 사용된 상태관리 및 아키텍쳐를 이해하기 위한 스터디
 
-## Getting Started
+## 목차
 
-This project is a starting point for a Flutter application.
+- [ ] 플러터 시작하기
+- [ ] 플러터 시작하기
+- [ ] 플러터 시작하기
+- [ ] 플러터 시작하기
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+|제목|내용|설명|
+|------|---|---|
+|테스트1|테스트2|테스트3|
+|테스트1|테스트2|테스트3|
+|테스트1|테스트2|테스트3|
