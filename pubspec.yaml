@@ -39,6 +39,7 @@ dependencies:
   http: ^0.13.5
   dio: ^4.0.6
   path_provider: ^2.0.11
+  shared_preferences: ^2.0.15
 
 
 dev_dependencies:
@@ -73,6 +74,7 @@ flutter:
     - repo/images/monkey.png
     - repo/images/pig.png
     - repo/images/wolf.png
+    - repo/fruit.txt
 
 
 
