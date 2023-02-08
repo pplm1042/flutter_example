@@ -679,11 +679,7 @@
 
 //// 10
 import 'package:flutter/material.dart';
-import 'package:flutter_example/animation_11_01.dart';
-import 'package:flutter_example/animation_11_02.dart';
 import 'package:flutter_example/platform_channel_12_01.dart';
-import 'package:flutter_example/platform_channel_12_02.dart';
-import 'package:flutter_example/sliver_11_03.dart';
 
 void main() {
   runApp(const MyApp());
