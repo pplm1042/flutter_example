@@ -678,9 +678,12 @@
 // }
 
 //// 10
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_example/platform_channel_12_01.dart';
+import 'package:flutter_example/google_analytics_13_01.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
