@@ -67,8 +67,93 @@ class _FirebaseAppState extends State<FirebaseApp> {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.tab),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            settings: const RouteSettings(name: '/tabs'),
+            builder: (context) {
+              return TabsPage(observer: widget.observer);
+            },
+          ));
+        },
       ),
+    );
+  }
+}
+
+class TabsPage extends StatefulWidget {
+  const TabsPage({required this.observer, super.key});
+
+  final FirebaseAnalyticsObserver? observer;
+
+  @override
+  State<TabsPage> createState() => _TabsPageState();
+}
+
+class _TabsPageState extends State<TabsPage>
+    with SingleTickerProviderStateMixin, RouteAware {
+  TabController? controller;
+  int selectedIndex = 0;
+
+  final List<Tab> tabs = <Tab>[
+    const Tab(
+      text: '1번',
+      icon: Icon(Icons.looks_one),
+    ),
+    const Tab(
+      text: '2번',
+      icon: Icon(Icons.looks_two),
+    )
+  ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller = TabController(
+        length: tabs.length, vsync: this, initialIndex: selectedIndex);
+
+    controller!.addListener(() {
+      setState(() {
+        if (selectedIndex != controller!.index) {
+          selectedIndex = controller!.index;
+          _sendCurrentTab();
+        }
+      });
+    });
+  }
+
+  void _sendCurrentTab() async {
+    await widget.observer!.analytics
+        .setCurrentScreen(screenName: 'tab/$selectedIndex');
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    widget.observer!.subscribe(this, ModalRoute.of(context)!);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    widget.observer!.unsubscribe(this);
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        bottom: TabBar(
+          tabs: tabs,
+          controller: controller,
+        ),
+      ),
+      body: TabBarView(
+          controller: controller,
+          children:
+              tabs.map((Tab tab) => Center(child: Text(tab.text!))).toList()),
     );
   }
 }
